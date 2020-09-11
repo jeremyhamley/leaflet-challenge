@@ -28,15 +28,21 @@ d3.json(url, function(data) {
     for (var i = 0; i < quakeFeatures.length; i++) {
 
         var color = "";
-        if (quakeFeatures[i].properties.mag < 2) {
+        if (quakeFeatures[i].properties.mag <= 1) {
           color = "yellow";
         }
-        else if (quakeFeatures[i].properties.mag < 5) {
-          color = "blue";
+        else if (quakeFeatures[i].properties.mag <= 2) {
+          color = "yellowgreen";
         }
-        else if (quakeFeatures[i].properties.mag < 15) {
-          color = "green";
+        else if (quakeFeatures[i].properties.mag <= 3) {
+            color = "greenyellow";
+          }
+        else if (quakeFeatures[i].properties.mag <= 4) {
+          color = "orange";
         }
+        else if (quakeFeatures[i].properties.mag <= 5) {
+            color = "orangered";
+          }
         else {
           color = "red";
         }
@@ -44,14 +50,14 @@ d3.json(url, function(data) {
         var quakeLocs = [quakeFeatures[i].geometry.coordinates[1],quakeFeatures[i].geometry.coordinates[0]]
 
         // Add circles to map
-        console.log(quakeLocs)
+        // console.log(quakeLocs)
         L.circle(quakeLocs, {
           fillOpacity: 0.75,
         //   color: "white",
           fillColor: color,
           // Adjust radius
           radius: quakeFeatures[i].properties.mag * 50000
-        }).bindPopup("<h1>" + quakeFeatures[i].properties.place + "</h1> <hr> <h3>Magnitude : " + quakeFeatures[i].properties.mag + "</h3>").addTo(myMap);
+        }).bindPopup("<h2>Location: " + quakeFeatures[i].properties.place + "</h2> <hr> <h2>Magnitude : " + quakeFeatures[i].properties.mag + "</h23>").addTo(myMap);
       }
 
 
