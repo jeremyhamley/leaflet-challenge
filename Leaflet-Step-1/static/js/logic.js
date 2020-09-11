@@ -1,6 +1,6 @@
 // Create map object
 var myMap = L.map("map", {
-    center: [36.9989, -109.0452],
+    center: [46.9989, -109.0452],
     zoom: 4
   });
   
@@ -32,10 +32,10 @@ d3.json(url, function(data) {
           color = "yellow";
         }
         else if (quakeFeatures[i].properties.mag <= 2) {
-          color = "yellowgreen";
+          color = "greenyellow";
         }
         else if (quakeFeatures[i].properties.mag <= 3) {
-            color = "greenyellow";
+            color = "yellowgreen";
           }
         else if (quakeFeatures[i].properties.mag <= 4) {
           color = "orange";
@@ -53,7 +53,8 @@ d3.json(url, function(data) {
         // console.log(quakeLocs)
         L.circle(quakeLocs, {
           fillOpacity: 0.75,
-        //   color: "white",
+          color: "grey",
+          weight: 0.5,
           fillColor: color,
           // Adjust radius
           radius: quakeFeatures[i].properties.mag * 50000
