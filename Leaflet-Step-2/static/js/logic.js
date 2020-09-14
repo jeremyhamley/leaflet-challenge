@@ -28,13 +28,10 @@ d3.json(url, function(data) {
     });
 
     
-  
     // Sending our earthquakes layer to the createMap function
     createMap(earthquakes);
   }
   
-
-
 
   function createMap(earthquakes) {
   
