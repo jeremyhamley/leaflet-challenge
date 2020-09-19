@@ -3,6 +3,10 @@
 //  link for All earthquake date for the past day
 url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson"
 
+//  link for the tectonic plates
+var teclink = "https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json"
+
+
 
 
 // Pull data from url
@@ -24,7 +28,8 @@ d3.json(url, function(data) {
     // Create a GeoJSON layer containing the features array on the earthquakeData object
     // Run the onEachFeature function once for each piece of data in the array
     var earthquakes = L.geoJSON(earthquakeData, {
-      onEachFeature: onEachFeature
+      onEachFeature: onEachFeature,
+
     });
 
     
@@ -77,6 +82,8 @@ d3.json(url, function(data) {
       collapsed: false
     }).addTo(myMap);
   }
+
+
   
 
 

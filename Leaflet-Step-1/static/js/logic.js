@@ -60,6 +60,8 @@ d3.json(url, function(data) {
           radius: quakeFeatures[i].properties.mag * 50000
         }).bindPopup("<h2>Location: " + quakeFeatures[i].properties.place + "</h2> <hr> <h2>Magnitude : " 
             + quakeFeatures[i].properties.mag + "</h2><hr><p>" + new Date(quakeFeatures[i].properties.time) + "</p>").addTo(myMap);
+
+
       }
 
 
